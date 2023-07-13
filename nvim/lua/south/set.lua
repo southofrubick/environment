@@ -33,11 +33,8 @@ opt.cursorline = true
 opt.splitright = true
 opt.splitbelow = true
 
-<<<<<<< HEAD
-=======
 opt.clipboard = 'unnamed'
 
->>>>>>> master
 vim.g.mapleader = " "
 
 vim.g.netrw_liststyle = 3
@@ -48,9 +45,3 @@ vim.g.netrw_altv = 1
 vim.g.netrw_alto = 0
 vim.g.netrw_winsize = 85
 vim.g.netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
-<<<<<<< HEAD
-
-vim.keymap.set('', 'f', '<cmd>HopChar1MW<CR>')
-vim.keymap.set('', '<leader>l', '<cmd>HopLineStart<CR>')
-=======
->>>>>>> master
