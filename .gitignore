@@ -8,3 +8,7 @@ pulse/
 totem/
 /user-dirs.dirs
 /user-dirs.locale
+.DS_Store/
+.gitignore
+configstore/
+neofetch/
