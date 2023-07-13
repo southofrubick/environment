@@ -1,9 +1,12 @@
+local cmd = vim.cmd
+local api = vim.api
+
 function ColorMyPencils(color)
     color = color or "darcula"
-    vim.cmd.colorscheme(color)
+    cmd.colorscheme(color)
 
-    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+    api.nvim_set_hl(0, "Normal", { bg = "none" })
+    api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
 end
 
