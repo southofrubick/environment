@@ -1,0 +1,90 @@
+# applications
+alias r="ranger"
+alias upoc="~/work/octane/scripts/db-setup && ~/work/octane/scripts/manage load_dev_users"
+alias recoc="cd ~/work/octane && ./scripts/shell --bash 'pip3 install -r requirements/system.txt' && ./scripts/shell --bash 'pip3 install -r requirements/local.txt' &&  ./scripts/shell --bash 'pip3 install -r requirements/custom.txt'"
+alias ytest="yarn test --coverage"
+alias ytesta="yarn test src --coverage"
+alias vim="nvim"
+alias drest="docker compose down && docker compose up"
+alias gotop="gotop -c monokai -l battery"
+
+# navigation
+alias ..="cd .."
+alias cdoc="cd ~/work/octane"
+alias cdfe="cd ~/work/octane-dealer-frontend"
+alias cdww="cd ~/work/octane-dealer-web-app"
+alias cdlast="cd -"
+
+alias vimoc="cd ~/work/octane && vim ."
+alias vimfe="cd ~/work/octane-dealer-frontend && vim ."
+alias vimww="cd ~/work/octane-dealer-web-app && vim ."
+
+alias servlog="cd ~/work/octane && scripts/logs"
+alias servwp="cd ~/work/octane && scripts/webpack --dev"
+alias servfe="cd ~/work/octane-dealer-frontend && scripts/dev"
+alias servww="cd ~/work/octane-dealer-web-app && scripts/dev"
+
+# git
+alias ga="git add"
+alias gaa="git add ."
+alias gaas="git add . && git status"
+alias gb="git branch"
+alias gbclear="git branch | grep -v 'master\|main\|current_branch' | xargs git branch -D"
+alias gbr="git branch -r"
+alias gbd="git branch -D"
+alias gc="git commit"
+alias gclast="git checkout -"
+alias gco="git checkout"
+alias gcn="git checkout -b"
+alias gd="git diff"
+alias gdf="git diff --name-only"
+alias gdo="git diff origin"
+alias gdof="git diff origin --name-only"
+alias gds="git diff --staged"
+alias gl="git log"
+alias glo="git log --oneline"
+alias gllast="git log -1"
+alias gmm="merge_origin"
+alias gp="git push"
+alias gpo="git push -u origin"
+alias grs="git restore --staged ."
+alias gs="git status"
+alias gst="git stash"
+alias gsclear="git add . && git stash && git stash clear"
+alias gsls="git stash list"
+alias gsp="git stash pop"
+alias gss="git stash show"
+alias gup="git fetch && git pull"
+alias gman="update_origin"
+alias gback="git reset HEAD^"
+alias gtree="git log --graph --all --decorate --oneline"
+
+update_origin() {
+  dir=$PWD
+  if [ "$dir" = "/Users/martin.jonsson/work/octane" ] || [ "$dir" = "/Users/martin.jonsson/work/octane-dealer-frontend" ]; then
+    git checkout master
+  elif [ "$dir" = "/Users/martin.jonsson/work/octane-dealer-web-app" ]
+    git checkout main
+}
+
+merge_origin() {
+  dir=$PWD
+  if [ "$dir" = "/Users/martin.jonsson/work/octane" ] || [ "$dir" = "/Users/martin.jonsson/work/octane-dealer-frontend" ]; then
+    git merge origin/master
+  elif [ "$dir" = "/Users/martin.jonsson/work/octane-dealer-web-app" ]
+    git merge origin/main
+}
+
+# configs
+alias cona="vim ~/.config/.dotfiles/.aliases"
+alias conz="vim ~/.zshrc"
+alias vimrc="vim ~/.config"
+alias sourc="source ~/.zshrc"
+alias s2a=' \
+  saml2aws login \
+  --session-duration=43200 \
+  --region=us-west-2 \
+  --username=martin.jonsson@octanelending.com \
+  --role=arn:aws:iam::014157409456:role/Engineering-SAML \
+  --skip-prompt --force \
+'
