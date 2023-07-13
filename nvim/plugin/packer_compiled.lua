@@ -49,13 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-<<<<<<< HEAD
-local package_path_str = "/home/south/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/south/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/south/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/south/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/south/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
-=======
 local package_path_str = "/Users/martin.jonsson/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/martin.jonsson/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/martin.jonsson/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/martin.jonsson/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
 local install_cpath_pattern = "/Users/martin.jonsson/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
->>>>>>> master
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -81,41 +76,21 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   LuaSnip = {
     loaded = true,
-<<<<<<< HEAD
-    path = "/home/south/.local/share/nvim/site/pack/packer/start/LuaSnip",
-=======
     path = "/Users/martin.jonsson/.local/share/nvim/site/pack/packer/start/LuaSnip",
->>>>>>> master
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
   ["blame_line.nvim"] = {
     loaded = true,
-<<<<<<< HEAD
-    path = "/home/south/.local/share/nvim/site/pack/packer/start/blame_line.nvim",
-=======
     path = "/Users/martin.jonsson/.local/share/nvim/site/pack/packer/start/blame_line.nvim",
->>>>>>> master
     url = "https://github.com/braxtons12/blame_line.nvim"
   },
   ["bufdelete.nvim"] = {
     loaded = true,
-<<<<<<< HEAD
-    path = "/home/south/.local/share/nvim/site/pack/packer/start/bufdelete.nvim",
-=======
     path = "/Users/martin.jonsson/.local/share/nvim/site/pack/packer/start/bufdelete.nvim",
->>>>>>> master
     url = "https://github.com/famiu/bufdelete.nvim"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
-<<<<<<< HEAD
-    path = "/home/south/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
-    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
-  },
-  darcula = {
-    loaded = true,
-    path = "/home/south/.local/share/nvim/site/pack/packer/start/darcula",
-=======
     path = "/Users/martin.jonsson/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
@@ -127,47 +102,26 @@ _G.packer_plugins = {
   darcula = {
     loaded = true,
     path = "/Users/martin.jonsson/.local/share/nvim/site/pack/packer/start/darcula",
->>>>>>> master
     url = "https://github.com/doums/darcula"
   },
   fd = {
     loaded = true,
-<<<<<<< HEAD
-    path = "/home/south/.local/share/nvim/site/pack/packer/start/fd",
-=======
     path = "/Users/martin.jonsson/.local/share/nvim/site/pack/packer/start/fd",
->>>>>>> master
     url = "https://github.com/sharkdp/fd"
   },
   ["hop.nvim"] = {
     config = { "\27LJ\2\nU\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\tkeys\28etovxqpdygfblzhckisuran\nsetup\bhop\frequire\0" },
     loaded = true,
-<<<<<<< HEAD
-    path = "/home/south/.local/share/nvim/site/pack/packer/start/hop.nvim",
-=======
     path = "/Users/martin.jonsson/.local/share/nvim/site/pack/packer/start/hop.nvim",
->>>>>>> master
     url = "https://github.com/phaazon/hop.nvim"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
-<<<<<<< HEAD
-    path = "/home/south/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
-=======
     path = "/Users/martin.jonsson/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
->>>>>>> master
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["lsp-zero.nvim"] = {
     loaded = true,
-<<<<<<< HEAD
-    path = "/home/south/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
-    url = "https://github.com/VonHeikemen/lsp-zero.nvim"
-  },
-  ["mason-lspconfig.nvim"] = {
-    loaded = true,
-    path = "/home/south/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
-=======
     path = "/Users/martin.jonsson/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
   },
@@ -179,91 +133,50 @@ _G.packer_plugins = {
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/Users/martin.jonsson/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
->>>>>>> master
     url = "https://github.com/williamboman/mason-lspconfig.nvim"
   },
   ["mason.nvim"] = {
     loaded = true,
-<<<<<<< HEAD
-    path = "/home/south/.local/share/nvim/site/pack/packer/start/mason.nvim",
-=======
     path = "/Users/martin.jonsson/.local/share/nvim/site/pack/packer/start/mason.nvim",
->>>>>>> master
     url = "https://github.com/williamboman/mason.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
-<<<<<<< HEAD
-    path = "/home/south/.local/share/nvim/site/pack/packer/start/nvim-cmp",
-=======
     path = "/Users/martin.jonsson/.local/share/nvim/site/pack/packer/start/nvim-cmp",
->>>>>>> master
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-<<<<<<< HEAD
-    path = "/home/south/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
-=======
     path = "/Users/martin.jonsson/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
->>>>>>> master
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-treesitter"] = {
     loaded = true,
-<<<<<<< HEAD
-    path = "/home/south/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
-=======
     path = "/Users/martin.jonsson/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
->>>>>>> master
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-treesitter-context"] = {
     loaded = true,
-<<<<<<< HEAD
-    path = "/home/south/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context",
-=======
     path = "/Users/martin.jonsson/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context",
->>>>>>> master
     url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-<<<<<<< HEAD
-    path = "/home/south/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
-=======
     path = "/Users/martin.jonsson/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
->>>>>>> master
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-<<<<<<< HEAD
-    path = "/home/south/.local/share/nvim/site/pack/packer/start/packer.nvim",
-=======
     path = "/Users/martin.jonsson/.local/share/nvim/site/pack/packer/start/packer.nvim",
->>>>>>> master
     url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-<<<<<<< HEAD
-    path = "/home/south/.local/share/nvim/site/pack/packer/start/plenary.nvim",
-=======
     path = "/Users/martin.jonsson/.local/share/nvim/site/pack/packer/start/plenary.nvim",
->>>>>>> master
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ripgrep = {
     loaded = true,
-<<<<<<< HEAD
-    path = "/home/south/.local/share/nvim/site/pack/packer/start/ripgrep",
-    url = "https://github.com/BurntSushi/ripgrep"
-  },
-  ["telescope.nvim"] = {
-    loaded = true,
-    path = "/home/south/.local/share/nvim/site/pack/packer/start/telescope.nvim",
-=======
     path = "/Users/martin.jonsson/.local/share/nvim/site/pack/packer/start/ripgrep",
     url = "https://github.com/BurntSushi/ripgrep"
   },
@@ -275,43 +188,15 @@ _G.packer_plugins = {
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/martin.jonsson/.local/share/nvim/site/pack/packer/start/telescope.nvim",
->>>>>>> master
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   treesj = {
     loaded = true,
-<<<<<<< HEAD
-    path = "/home/south/.local/share/nvim/site/pack/packer/start/treesj",
-=======
     path = "/Users/martin.jonsson/.local/share/nvim/site/pack/packer/start/treesj",
->>>>>>> master
     url = "https://github.com/Wansmer/treesj"
   },
   ["trouble.nvim"] = {
     loaded = true,
-<<<<<<< HEAD
-    path = "/home/south/.local/share/nvim/site/pack/packer/start/trouble.nvim",
-    url = "https://github.com/folke/trouble.nvim"
-  },
-  ["vim-airline"] = {
-    loaded = true,
-    path = "/home/south/.local/share/nvim/site/pack/packer/start/vim-airline",
-    url = "https://github.com/vim-airline/vim-airline"
-  },
-  ["vim-airline-themes"] = {
-    loaded = true,
-    path = "/home/south/.local/share/nvim/site/pack/packer/start/vim-airline-themes",
-    url = "https://github.com/vim-airline/vim-airline-themes"
-  },
-  ["vim-gitgutter"] = {
-    loaded = true,
-    path = "/home/south/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
-    url = "https://github.com/airblade/vim-gitgutter"
-  },
-  ["vim-tmux-navigator"] = {
-    loaded = true,
-    path = "/home/south/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
-=======
     path = "/Users/martin.jonsson/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
   },
@@ -328,7 +213,6 @@ _G.packer_plugins = {
   ["vim-tmux-navigator"] = {
     loaded = true,
     path = "/Users/martin.jonsson/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
->>>>>>> master
     url = "https://github.com/christoomey/vim-tmux-navigator"
   }
 }
