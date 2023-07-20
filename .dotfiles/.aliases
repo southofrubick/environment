@@ -57,7 +57,7 @@ alias gss="git stash show"
 alias gup="git fetch && git pull"
 alias gman="update_origin"
 alias gback="git reset HEAD^"
-alias gtree="git log --graph --all --decorate --oneline"
+alias gltree="git log --graph --all --decorate --oneline"
 
 update_origin() {
   dir=$PWD
@@ -78,7 +78,7 @@ merge_origin() {
 # configs
 alias cona="vim ~/.config/.dotfiles/.aliases"
 alias conz="vim ~/.zshrc"
-alias vimrc="vim ~/.config"
+alias vimrc="cd ~/.config && vim . ; cdlast"
 alias sourc="source ~/.zshrc"
 alias s2a=' \
   saml2aws login \
