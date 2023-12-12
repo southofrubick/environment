@@ -1,64 +1,85 @@
-# applications
-alias r="ranger"
-alias upoc="~/work/octane/scripts/db-setup && ~/work/octane/scripts/manage load_dev_users"
-alias recoc="cd ~/work/octane && ./scripts/shell --bash 'pip3 install -r requirements/system.txt' && ./scripts/shell --bash 'pip3 install -r requirements/local.txt' &&  ./scripts/shell --bash 'pip3 install -r requirements/custom.txt'"
-alias ytest="yarn test --coverage"
-alias ytesta="yarn test src --coverage"
-alias vim="nvim"
-alias drest="docker compose down && docker compose up"
-alias gotop="gotop -c monokai -l battery"
-
 # navigation
 alias ..="cd .."
 alias cdoc="cd ~/work/octane"
 alias cdfe="cd ~/work/octane-dealer-frontend"
 alias cdww="cd ~/work/octane-dealer-web-app"
-alias cdlast="cd -"
+alias cdapi="cd ~/work/ride-octane-api"
+alias cdux="cd ~/work/ride-octane-ux"
+alias cdboard="cd ~/work/octane-lending-boarding-service"
+alias cdl="cd -"
 
+# open projects in vim
 alias vimoc="cd ~/work/octane && vim ."
 alias vimfe="cd ~/work/octane-dealer-frontend && vim ."
 alias vimww="cd ~/work/octane-dealer-web-app && vim ."
 
+# applications
+alias r="ranger"
+alias upoc="~/work/octane/scripts/teardown && ~/work/octane/scripts/up"
+alias setoc="~/work/octane/scripts/db-setup && ~/work/octane/scripts/manage load_dev_users"
+alias recoc="cd ~/work/octane && ./scripts/shell --bash 'pip3 install -r requirements/system.txt' && ./scripts/shell --bash 'pip3 install -r requirements/local.txt' &&  ./scripts/shell --bash 'pip3 install -r requirements/custom.txt'"
+alias formoc="cdoc && upoc && setoc && recoc"
+alias vim="nvim"
+alias drest="docker compose down && docker compose up"
+alias gotop="gotop -c monokai -l battery"
+alias ydit="yarn audit"
+alias ytest="yarn test --coverage"
+alias ytesta="yarn test src --coverage"
+alias yver="yarn list --pattern"
+
+# start the different dev servers/watchers
 alias servlog="cd ~/work/octane && scripts/logs"
 alias servwp="cd ~/work/octane && scripts/webpack --dev"
 alias servfe="cd ~/work/octane-dealer-frontend && scripts/dev"
 alias servww="cd ~/work/octane-dealer-web-app && scripts/dev"
 
-# git
+# git shortcuts
 alias ga="git add"
-alias gaa="git add ."
-alias gaas="git add . && git status"
+alias gaa="ga ."
+alias gap="gaa -p"
+alias gaas="gaa && gs"
 alias gb="git branch"
-alias gbclear="git branch | grep -v 'master\|main\|current_branch' | xargs git branch -D"
-alias gbr="git branch -r"
-alias gbd="git branch -D"
-alias gc="git commit"
-alias gclast="git checkout -"
+alias gbclear="gb | grep -v 'master\|main\|current_branch' | xargs git branch -D"
+alias gbr="gb -a"
+alias gbd="gb -D"
+alias gc="git commit -v"
+alias gca="git commit --amend"
+alias gcl="git checkout -"
 alias gco="git checkout"
-alias gcn="git checkout -b"
-alias gd="git diff"
-alias gdf="git diff --name-only"
-alias gdo="git diff origin"
-alias gdof="git diff origin --name-only"
-alias gds="git diff --staged"
+alias gcf="gco --"
+alias gcn="gco -b"
+alias gclear="gaa . && gst && gst clear"
+alias gd="git diff -M"
+alias gdf="gd --name-only"
+alias gds="gd --staged"
+alias gdo="gd origin"
+alias gdof="gdo --name-only"
+alias gf="git fetch"
 alias gl="git log"
-alias glo="git log --oneline"
-alias gllast="git log -1"
+alias glo="gl --oneline --pretty='format:%C(yellow)%h%C(auto)%d%Creset %s %C(white) %C(cyan)%an, %C(magenta)%ar%Creset'"
+alias glv="glo -p"
+alias glom="gl --merges --oneline --pretty='format:%C(yellow)%h%C(auto)%d%Creset %s %C(white) %C(cyan)%an, %C(magenta)%ar%Creset'"
+alias glast="git show"
+alias gls="gl --stat"
+alias glspec='(){ glo --grep="$1" ;}'
+alias gltree="gl --all --graph --pretty='format:%C(yellow)%h%C(auto)%d%Creset %s %C(white) %C(cyan)%an, %C(magenta)%ar%Creset'"
+alias gm="git merge"
 alias gmm="merge_origin"
 alias gp="git push"
-alias gpo="git push -u origin"
+alias gpo="gp -u origin"
 alias grs="git restore --staged ."
-alias gs="git status"
+alias gs="git status -sb"
 alias gst="git stash"
-alias gsclear="git add . && git stash && git stash clear"
-alias gsls="git stash list"
-alias gsp="git stash pop"
-alias gss="git stash show"
+alias gsls="gst list"
+alias gsp="gst pop"
+alias gss="gst show"
 alias gup="git fetch && git pull"
 alias gman="update_origin"
 alias gback="git reset HEAD^"
-alias gltree="git log --graph --all --decorate --oneline"
+alias grsh="git reset --hard"
+alias gmup="gman && gup"
 
+# make gman both master and main compatible
 update_origin() {
   dir=$PWD
   if [ "$dir" = "/Users/martin.jonsson/work/octane" ] || [ "$dir" = "/Users/martin.jonsson/work/octane-dealer-frontend" ]; then
@@ -67,6 +88,7 @@ update_origin() {
     git checkout main
 }
 
+# make gmm both master and main combatible
 merge_origin() {
   dir=$PWD
   if [ "$dir" = "/Users/martin.jonsson/work/octane" ] || [ "$dir" = "/Users/martin.jonsson/work/octane-dealer-frontend" ]; then
@@ -88,3 +110,9 @@ alias s2a=' \
   --role=arn:aws:iam::014157409456:role/Engineering-SAML \
   --skip-prompt --force \
 '
+
+alias s2d="aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 014157409456.dkr.ecr.us-west-2.amazonaws.com"
+
+alias vaws="s2a && s2d"
+
+alias salogin="saml2aws login --session-duration=43200; s2d"
