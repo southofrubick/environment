@@ -35,6 +35,8 @@ opt.splitbelow = true
 
 opt.clipboard = 'unnamed'
 
+opt.ar = true
+
 vim.g.mapleader = " "
 
 vim.g.netrw_liststyle = 3
