@@ -39,11 +39,18 @@ opt.ar = true
 
 vim.g.mapleader = " "
 
-vim.g.netrw_liststyle = 3
+-- vim.g.netrw_liststyle = 3
 vim.g.netrw_banner = 0
-vim.g.netrw_browse_split = 4
+-- vim.g.netrw_browse_split = 4
 vim.g.netrw_preview = 1
 vim.g.netrw_altv = 1
 vim.g.netrw_alto = 0
 vim.g.netrw_winsize = 85
 vim.g.netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
+
+-- autoread files that have been changed
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+  command = "if mode() != 'c' | checktime | endif",
+  pattern = { "*" },
+})

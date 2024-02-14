@@ -1,0 +1,66 @@
+# git shortcuts
+alias ga="git add -v"
+alias gaa="ga ."
+alias gap="gaa -p"
+alias gaas="gaa && gs"
+alias gb="git branch"
+alias gbclear="gb | grep -v 'master\|main\|current_branch' | xargs git branch -D"
+alias gbr="gb -a"
+alias gbd="gb -D"
+alias gc="git commit -v"
+alias gca="git commit --amend"
+alias gcl="git checkout -"
+alias gclast="git checkout -"
+alias gco="git checkout"
+alias gcf="gco --"
+alias gcn="gco -b"
+alias gd="git diff -M"
+alias gdf="gd --name-only"
+alias gds="gd --staged"
+alias gdo="gd origin"
+alias gdof="gdo --name-only"
+alias gf="git fetch"
+alias gl="git log"
+alias glo="gl --oneline --pretty='format:%C(yellow)%h%C(auto)%d%Creset %s %C(white) %C(cyan)%an, %C(magenta)%ar%Creset'"
+alias glv="glo -p"
+alias glom="gl --merges --oneline --pretty='format:%C(yellow)%h%C(auto)%d%Creset %s %C(white) %C(cyan)%an, %C(magenta)%ar%Creset'"
+alias glast="git show"
+alias gls="gl --stat"
+alias glspec='(){ glo --grep="$1" ;}'
+alias gltree="gl --all --graph --pretty='format:%C(yellow)%h%C(auto)%d%Creset %s %C(white) %C(cyan)%an, %C(magenta)%ar%Creset'"
+alias gm="git merge"
+alias gmm="merge_origin"
+alias gp="git push"
+alias gpo="gp -u origin"
+alias gr="git restore --staged"
+alias grs="git restore --staged ."
+alias gs="git status -s"
+alias gsclear="gaa . && gst && gst clear"
+alias gclear="gaa . && gst && gst clear"
+alias gst="git stash"
+alias gsls="gst list"
+alias gsp="gst pop"
+alias gss="gst show"
+alias gup="git fetch && git pull"
+alias gman="update_origin"
+alias gback="git reset HEAD^"
+alias grsh="git reset --hard"
+alias gmup="gman && gup"
+
+# make gman both master and main compatible
+update_origin() {
+  dir=$PWD
+  if [ "$dir" = "/Users/martin.jonsson/work/octane" ] || [ "$dir" = "/Users/martin.jonsson/work/octane-dealer-frontend" ]; then
+    git checkout master
+  elif [ "$dir" = "/Users/martin.jonsson/work/octane-dealer-web-app" ]
+    git checkout main
+}
+
+# make gmm both master and main combatible
+merge_origin() {
+  dir=$PWD
+  if [ "$dir" = "/Users/martin.jonsson/work/octane" ] || [ "$dir" = "/Users/martin.jonsson/work/octane-dealer-frontend" ]; then
+    git merge origin/master
+  elif [ "$dir" = "/Users/martin.jonsson/work/octane-dealer-web-app" ]
+    git merge origin/main
+}

@@ -1,0 +1,12 @@
+alias s2a=' \
+  saml2aws login \
+  --session-duration=43200 \
+  --region=us-west-2 \
+  --username=martin.jonsson@octanelending.com \
+  --role=arn:aws:iam::014157409456:role/EngineeringContractor-SAML \
+  --skip-prompt --force \
+'
+
+alias s2d="aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 014157409456.dkr.ecr.us-west-2.amazonaws.com"
+
+alias valaws="s2a && s2d"
