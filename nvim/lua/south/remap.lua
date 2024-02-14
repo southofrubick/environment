@@ -24,7 +24,6 @@ keymap.set("n", "<leader>sv", "<C-w>v")
 keymap.set("n", "<leader>sh", "<C-w>s")
 keymap.set("n", "<leader>sx", ":close<CR>")
 
-keymap.set("n", "<leader>ls", ":ls<CR>")
 keymap.set("n", "<leader>bn", ":bn<CR>")
 keymap.set("n", "<leader>bp", ":bp<CR>")
 keymap.set("n", "<leader>bd", ":Bdelete<CR>")
@@ -39,3 +38,7 @@ keymap.set("n", "<leader>l", "<cmd>HopLineStart<CR>")
 
 keymap.set("n", "<leader>wd", "<cmd>w !diff % -<CR>")
 keymap.set("n", "<leader>ee", "<cmd>e<CR>")
+
+keymap.set("n", "<leader>rjs", "<cmd>w | !node % -<CR>")
+keymap.set("n", "<leader>rpy", "<cmd>w | !python3 % -<CR>")
+keymap.set("n", "<leader>dcf", "<cmd>call delete(expand('%'))<CR>")

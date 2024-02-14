@@ -1,0 +1,34 @@
+alias cdoc="cd ~/work/octane"
+alias cdfe="cd ~/work/octane-dealer-frontend"
+alias cdww="cd ~/work/octane-dealer-web-app"
+alias cdapi="cd ~/work/ride-octane-api"
+alias cdux="cd ~/work/ride-octane-ux"
+alias cdboard="cd ~/work/octane-lending-boarding-service"
+
+alias vimoc="cd ~/work/octane && vim ."
+alias vimfe="cd ~/work/octane-dealer-frontend && vim ."
+alias vimww="cd ~/work/octane-dealer-web-app && vim ."
+
+alias upoc="~/work/octane/scripts/teardown && ~/work/octane/scripts/up"
+alias recoc="cd ~/work/octane && ./scripts/shell --bash 'pip3 install -r requirements/system.txt' && ./scripts/shell --bash 'pip3 install -r requirements/local.txt' &&  ./scripts/shell --bash 'pip3 install -r requirements/custom.txt'"
+alias setoc="~/work/octane/scripts/db-setup && ~/work/octane/scripts/manage load_dev_users"
+alias formoc="cdoc && upoc && recoc && setoc"
+
+# start the different dev servers/watchers
+alias servlog="cd ~/work/octane && scripts/logs"
+alias servwp="cd ~/work/octane && scripts/webpack --dev"
+alias servfe="cd ~/work/octane-dealer-frontend && scripts/dev"
+alias servww="cd ~/work/octane-dealer-web-app && scripts/dev"
+
+alias s2a=' \
+  saml2aws login \
+  --session-duration=43200 \
+  --region=us-west-2 \
+  --username=martin.jonsson@octanelending.com \
+  --role=arn:aws:iam::014157409456:role/EngineeringContractor-SAML \
+  --skip-prompt --force \
+'
+
+alias s2d="aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 014157409456.dkr.ecr.us-west-2.amazonaws.com"
+
+alias valaws="s2a && s2d"

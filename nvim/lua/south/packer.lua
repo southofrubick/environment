@@ -1,7 +1,7 @@
 vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        'nvim-telescope/telescope.nvim',
         -- or
         requires = { { 'nvim-lua/plenary.nvim' }, { 'nvim-telescope/telescope-fzf-native.nvim', run = "make" } }
     }
@@ -9,6 +9,16 @@ return require('packer').startup(function(use)
     use('BurntSushi/ripgrep')
     use('sharkdp/fd')
     use('nvim-tree/nvim-web-devicons')
+    use('prichrd/netrw.nvim')
+
+    use {
+      "folke/which-key.nvim",
+      config = function()
+        vim.o.timeout = true
+        vim.o.timeoutlen = 300
+        require("which-key").setup {}
+      end
+    }
 
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -38,12 +48,13 @@ return require('packer').startup(function(use)
     use('Wansmer/treesj')
     use('christoomey/vim-tmux-navigator')
     use('airblade/vim-gitgutter')
-    use('doums/darcula')
+--    use('doums/darcula')
+    use ('catppuccin/nvim')
     use('braxtons12/blame_line.nvim')
 --    use('vim-airline/vim-airline')
 --    use('vim-airline/vim-airline-themes')
     use('nvim-lualine/lualine.nvim')
-    use('lukas-reineke/indent-blankline.nvim')
+    use{'lukas-reineke/indent-blankline.nvim', main = "ibl"}
     use('famiu/bufdelete.nvim')
     use('gorbit99/codewindow.nvim')
     use('RRethy/vim-illuminate')

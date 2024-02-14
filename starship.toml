@@ -1,19 +1,24 @@
+palette = "catppuccin_mocha"
+
 format = """
 $directory\
-[](fg:#4f000b bg:#720026)\
+[](fg:mauve bg:surface0)\
+[](fg:surface0 bg:lavender)\
 $git_branch\
 $git_state\
 $git_metrics\
-[](fg:#720026 bg:#ce4257)\
+[](fg:lavender bg:surface0)\
 $git_status\
-[](fg:#ce4257 bg:#ff7f51)\
+[](fg:surface0 bg:green)\
 $nodejs\
 $python\
-[](fg:#ff7f51)\
+[](fg:green)\
 $fill\
-[\uf0d9](fg:#ff9b54)\
-$time\
+[\uf0d9](fg:lavender)\
 $cmd_duration\ 
+[\uf0d9](bg:lavender fg:surface0)\
+[\uf0d9](bg:surface0 fg:mauve)\
+$time\
 $line_break\
 $character"""
 
@@ -21,50 +26,78 @@ $character"""
 symbol=" "
 
 [directory]
-style="bg:#4f000b"
+style="bg:mauve fg:surface0 bold"
 read_only=" "
 format="[ $path ]($style)"
 truncation_length=2
 
 [character]
-success_symbol="[➤](bright-black)"
+success_symbol="[➤](surface2)"
 error_symbol="[✗](red)"
 
 [git_status]
-style="bg:#ce4257"
-untracked="[?${count}](bg:#ce4257 fg:#44eeff)"
-ahead="[⇡](bg:#ce4257 fg:#55dd00)"
-behind="[⇣](bg:#ce4257 fg:#55dd00)"
-modified="[!${count}](bg:#ce4257 fg:#55aaff)"
-deleted="[✘${count}](bg:#ce4257 fg:#ff7700)"
-staged="[+${count}](bg:#ce4257 fg:#55dd00)"
-stashed="[#${count}](bg:#ce4257 fg:#ffdd00)"
+style="bg:surface0"
+untracked="[?${count}](bg:surface0 fg:#44eeff bold)"
+ahead="[⇡](bg:surface0 fg:#55dd00 bold)"
+behind="[⇣](bg:surface0 fg:#55dd00 bold)"
+modified="[!${count}](bg:surface0 fg:#55aaff bold)"
+deleted="[✘${count}](bg:surface0 fg:#ff7700 bold)"
+staged="[+${count}](bg:surface0 fg:#55dd00 bold)"
+stashed="[#${count}](bg:surface0 fg:#ffdd00 bold)"
 format="[( ($untracked )($ahead )($behind )($modified )($deleted )($staged )($stashed ))]($style)"
 
 [git_branch]
+style="bg:lavender fg:surface0 bold"
 symbol=""
-style="bg:#720026"
 truncation_length=9
 truncation_symbol="…"
 only_attached=true
 format="[ $symbol $branch ]($style)"
 
 [nodejs]
-style="bg:#ff7f51"
+style="bg:green fg:surface0 bold"
 symbol = " "
 format="[ $symbol($version )]($style)"
 
 [python]
-style="bg:#ff7f51"
+style="bg:green fg:surface0 bold"
 symbol = " "
 format="[ ${symbol}${pyenv_prefix}(${version} )($virtualenv )]($style)"
 
 [cmd_duration]
-style="bg:#ff9b54"
+style="bg:lavender fg:surface0 bold"
 format="[ $duration ]($style)"
 
 [time]
 disabled = false
 time_format = "%R" # Hour:Minute Format
-style = "bg:#ff9b54"
+style = "bg:mauve fg:surface0 bold"
 format = '[ $time ]($style)'
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
