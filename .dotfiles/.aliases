@@ -19,7 +19,7 @@ alias yver="yarn list --pattern"
 alias ls="eza -a --icons=always -F"
 
 # configs
-alias cona="vim ~/.config/.dotfiles/.aliases"
+alias cona="vim ~/.config/.dotfiles/"
 alias conz="vim ~/.zshrc"
 alias vimrc="cd ~/.config && vim . ; cdl"
 alias sourc="source ~/.zshrc"

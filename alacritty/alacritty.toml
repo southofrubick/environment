@@ -1,0 +1,23 @@
+import = [
+    "~/.config/alacritty/catppuccin-mocha.toml"
+]
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+normal = {family = "MesloLGS NF", style = "Regular"}
+bold = {family = "MesloLGS NF",style = "Bold"}
+italic = {family = "MesloLGS NF",style = "Italic"}
+size = 12.0
+
+[window]
+decorations = "None"
+opacity = 0.6
+blur = true
+
+[mouse]
+hide_when_typing = true
+
+[cursor]
+style = {shape = "Block", blinking = "always"}

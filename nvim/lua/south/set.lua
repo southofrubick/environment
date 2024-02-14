@@ -51,6 +51,6 @@ vim.g.netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
 -- autoread files that have been changed
 vim.o.autoread = true
 vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
-  command = "if mode() != 'c' | checktime | endif",
-  pattern = { "*" },
+    command = "if mode() != 'c' | checktime | endif",
+    pattern = { "*" },
 })
