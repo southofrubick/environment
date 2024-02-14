@@ -12,7 +12,7 @@ alias vimww="cd ~/work/octane-dealer-web-app && vim ."
 alias upoc="~/work/octane/scripts/teardown && ~/work/octane/scripts/up"
 alias recoc="cd ~/work/octane && ./scripts/shell --bash 'pip3 install -r requirements/system.txt' && ./scripts/shell --bash 'pip3 install -r requirements/local.txt' &&  ./scripts/shell --bash 'pip3 install -r requirements/custom.txt'"
 alias setoc="~/work/octane/scripts/db-setup && ~/work/octane/scripts/manage load_dev_users"
-alias formoc="cdoc && upoc && recoc && setoc"
+alias formoc="upoc && recoc && setoc"
 
 # start the different dev servers/watchers
 alias servlog="cd ~/work/octane && scripts/logs"
