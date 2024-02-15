@@ -2,22 +2,22 @@ palette = "catppuccin_mocha"
 
 format = """
 $directory\
-[](fg:mauve bg:surface0)\
-[](fg:surface0 bg:lavender)\
+[](fg:base bg:mauve)\
+[](fg:lavender bg:base)\
 $git_branch\
 $git_state\
 $git_metrics\
-[](fg:lavender bg:surface0)\
+[](fg:base bg:lavender)\
 $git_status\
-[](fg:surface0 bg:green)\
+[](fg:green bg:base)\
 $nodejs\
 $python\
-[](fg:green)\
+[](bg:green fg:base)\
 $fill\
-[\uf0d9](fg:lavender)\
+[](fg:lavender)\
 $cmd_duration\ 
-[\uf0d9](bg:lavender fg:surface0)\
-[\uf0d9](bg:surface0 fg:mauve)\
+[](bg:lavender fg:base)\
+[](bg:base fg:mauve)\
 $time\
 $line_break\
 $character"""
@@ -36,14 +36,14 @@ success_symbol="[➤](surface2)"
 error_symbol="[✗](red)"
 
 [git_status]
-style="bg:surface0"
-untracked="[?${count}](bg:surface0 fg:#44eeff bold)"
-ahead="[⇡](bg:surface0 fg:#55dd00 bold)"
-behind="[⇣](bg:surface0 fg:#55dd00 bold)"
-modified="[!${count}](bg:surface0 fg:#55aaff bold)"
-deleted="[✘${count}](bg:surface0 fg:#ff7700 bold)"
-staged="[+${count}](bg:surface0 fg:#55dd00 bold)"
-stashed="[#${count}](bg:surface0 fg:#ffdd00 bold)"
+style="bg:base"
+untracked="[?${count}](bg:base fg:#44eeff bold)"
+ahead="[⇡](bg:base fg:#55dd00 bold)"
+behind="[⇣](bg:base fg:#55dd00 bold)"
+modified="[!${count}](bg:base fg:#55aaff bold)"
+deleted="[✘${count}](bg:base fg:#ff7700 bold)"
+staged="[+${count}](bg:base fg:#55dd00 bold)"
+stashed="[#${count}](bg:base fg:#ffdd00 bold)"
 format="[( ($untracked )($ahead )($behind )($modified )($deleted )($staged )($stashed ))]($style)"
 
 [git_branch]
