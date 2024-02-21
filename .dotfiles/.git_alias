@@ -3,10 +3,10 @@ alias ga="git add -v"
 alias gaa="ga ."
 alias gap="gaa -p"
 alias gaas="gaa && gs"
-alias gb="fzf_checkout_branch"
+alias gb="fzf_checkout_local"
 alias gbclear="gb | grep -v 'master\|main\|current_branch' | xargs git branch -D"
-alias gbr="gb -a"
-alias gbd="gb -D"
+alias gbr="fzf_checkout_remote"
+alias gbd="git branch -D"
 alias gc="git commit -v"
 alias gca="git commit --amend"
 alias gcl="git checkout -"
@@ -21,7 +21,7 @@ alias gdo="gd origin"
 alias gdof="gdo --name-only"
 alias gf="git fetch"
 alias gl="git log"
-alias gli="fzf_checkout_commit"
+alias gli="fzf_commit"
 alias glo="gl --oneline --pretty='format:%C(yellow)%h%C(auto)%d%Creset %s %C(white) %C(cyan)%an, %C(magenta)%ar%Creset'"
 alias glv="glo -p"
 alias glom="gl --merges --oneline --pretty='format:%C(yellow)%h%C(auto)%d%Creset %s %C(white) %C(cyan)%an, %C(magenta)%ar%Creset'"
@@ -39,7 +39,7 @@ alias gs="git status -s"
 alias gsclear="gaa . && gst && gst clear"
 alias gclear="gaa . && gst && gst clear"
 alias gst="git stash"
-alias gsls="gst list"
+alias gsi="fzf_stash_pop"
 alias gsp="gst pop"
 alias gss="gst show"
 alias gup="git fetch && git pull"
@@ -66,13 +66,69 @@ merge_origin() {
                 git merge origin/main
 }
 
-fzf_checkout_branch() {
+fzf_local_branch() {
     git rev-parse HEAD > /dev/null 2>&1 || return
 
-        git checkout “$(git branch | fzf| tr -d ‘[:space:]’)”
+    git branch --color=always --sort=-committerdate |
+        grep -v HEAD |
+        fzf --ansi --reverse \
+            --preview 'git log -n 50 --color=always --date=short --pretty="format:%C(auto)%cd %h%d %s" $(sed "s/.* //" <<< {})' |
+        sed "s/.* //"
 }
 
-fzf_checkout_commit() {
+fzf_checkout_local() {
+    git rev-parse HEAD > /dev/null 2>&1 || return
+
+    local branch
+
+    branch=$(fzf_local_branch)
+    if [[ "$branch" = "" ]]; then
+        echo "No branch selected."
+        return
+    fi
+
+    # If branch name starts with 'remotes/' then it is a remote branch. By
+    # using --track and a remote branch name, it is the same as:
+    # git checkout -b branchName --track origin/branchName
+    if [[ "$branch" = 'remotes/'* ]]; then
+        git checkout --track $branch
+    else
+        git checkout $branch;
+    fi
+}
+
+fzf_remote_branch() {
+    git rev-parse HEAD > /dev/null 2>&1 || return
+
+    git branch --color=always --all --sort=-committerdate |
+        grep -v HEAD |
+        fzf --ansi --reverse \
+            --preview 'git log -n 50 --color=always --date=short --pretty="format:%C(auto)%cd %h%d %s" $(sed "s/.* //" <<< {})' |
+        sed "s/.* //"
+}
+
+fzf_checkout_remote() {
+    git rev-parse HEAD > /dev/null 2>&1 || return
+
+    local branch
+
+    branch=$(fzf_remote_branch)
+    if [[ "$branch" = "" ]]; then
+        echo "No branch selected."
+        return
+    fi
+
+    # If branch name starts with 'remotes/' then it is a remote branch. By
+    # using --track and a remote branch name, it is the same as:
+    # git checkout -b branchName --track origin/branchName
+    if [[ "$branch" = 'remotes/'* ]]; then
+        git checkout --track $branch
+    else
+        git checkout $branch;
+    fi
+}
+
+fzf_commit() {
     git log --oneline --color=always \
                               --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
                               fzf --ansi --reverse --no-sort --tiebreak=index --bind=ctrl-s:toggle-sort \
@@ -81,4 +137,28 @@ fzf_checkout_commit() {
                                xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
                               {}
     FZF-EOF"
+}
+
+fzf_stash_list() {
+    git rev-parse HEAD > /dev/null 2>&1 || return
+
+    git stash list --color=always |
+        grep -v HEAD |
+        fzf --ansi --reverse \
+            --preview 'git stash show $(sed -E "s,^[^0-9]*([0-9]+).*$,\1," <<< {}) --color=always --date=short --pretty="format:%C(auto)%cd %h%d %s" $(awk -F"[^0-9]+" "$2" <<< {})' |
+        awk -F'[^0-9]+' '{ print $2 }'
+}
+
+fzf_stash_pop() {
+    git rev-parse HEAD > /dev/null 2>&1 || return
+    
+    local stash
+
+    stash=$(fzf_stash_list)
+    if [[ "$stash" == "" ]]; then
+        echo "No stash selected."
+        return
+    fi
+
+    git stash pop $stash;
 }
