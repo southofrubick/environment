@@ -10,3 +10,4 @@ totem/
 .DS_Store/
 .gitignore
 configstore/
+.dotfiles/.octane_alias

@@ -3,7 +3,7 @@ alias ga="git add -v"
 alias gaa="ga ."
 alias gap="gaa -p"
 alias gaas="gaa && gs"
-alias gb="git branch"
+alias gb="fzf_checkout_branch"
 alias gbclear="gb | grep -v 'master\|main\|current_branch' | xargs git branch -D"
 alias gbr="gb -a"
 alias gbd="gb -D"
@@ -21,6 +21,7 @@ alias gdo="gd origin"
 alias gdof="gdo --name-only"
 alias gf="git fetch"
 alias gl="git log"
+alias gli="fzf_checkout_commit"
 alias glo="gl --oneline --pretty='format:%C(yellow)%h%C(auto)%d%Creset %s %C(white) %C(cyan)%an, %C(magenta)%ar%Creset'"
 alias glv="glo -p"
 alias glom="gl --merges --oneline --pretty='format:%C(yellow)%h%C(auto)%d%Creset %s %C(white) %C(cyan)%an, %C(magenta)%ar%Creset'"
@@ -49,18 +50,35 @@ alias gmup="gman && gup"
 
 # make gman both master and main compatible
 update_origin() {
-  dir=$PWD
-  if [ "$dir" = "/Users/martin.jonsson/work/octane" ] || [ "$dir" = "/Users/martin.jonsson/work/octane-dealer-frontend" ]; then
-    git checkout master
-  elif [ "$dir" = "/Users/martin.jonsson/work/octane-dealer-web-app" ]
-    git checkout main
+    dir=$PWD
+        if [ "$dir" = "/Users/martin.jonsson/work/octane" ] || [ "$dir" = "/Users/martin.jonsson/work/octane-dealer-frontend" ]; then
+            git checkout master
+                elif [ "$dir" = "/Users/martin.jonsson/work/octane-dealer-web-app" ]
+                git checkout main
 }
 
 # make gmm both master and main combatible
 merge_origin() {
-  dir=$PWD
-  if [ "$dir" = "/Users/martin.jonsson/work/octane" ] || [ "$dir" = "/Users/martin.jonsson/work/octane-dealer-frontend" ]; then
-    git merge origin/master
-  elif [ "$dir" = "/Users/martin.jonsson/work/octane-dealer-web-app" ]
-    git merge origin/main
+    dir=$PWD
+        if [ "$dir" = "/Users/martin.jonsson/work/octane" ] || [ "$dir" = "/Users/martin.jonsson/work/octane-dealer-frontend" ]; then
+            git merge origin/master
+                elif [ "$dir" = "/Users/martin.jonsson/work/octane-dealer-web-app" ]
+                git merge origin/main
+}
+
+fzf_checkout_branch() {
+    git rev-parse HEAD > /dev/null 2>&1 || return
+
+        git checkout “$(git branch | fzf| tr -d ‘[:space:]’)”
+}
+
+fzf_checkout_commit() {
+    git log --oneline --color=always \
+                              --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+                              fzf --ansi --reverse --no-sort --tiebreak=index --bind=ctrl-s:toggle-sort \
+                              --bind "ctrl-m:execute:
+                              (grep -o '[a-f0-9]\{7\}' | head -1 |
+                               xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
+                              {}
+    FZF-EOF"
 }

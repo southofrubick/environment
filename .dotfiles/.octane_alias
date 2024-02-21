@@ -1,13 +1,6 @@
 alias cdoc="cd ~/work/octane"
 alias cdfe="cd ~/work/octane-dealer-frontend"
 alias cdww="cd ~/work/octane-dealer-web-app"
-alias cdapi="cd ~/work/ride-octane-api"
-alias cdux="cd ~/work/ride-octane-ux"
-alias cdboard="cd ~/work/octane-lending-boarding-service"
-
-alias vimoc="cd ~/work/octane && vim ."
-alias vimfe="cd ~/work/octane-dealer-frontend && vim ."
-alias vimww="cd ~/work/octane-dealer-web-app && vim ."
 
 alias upoc="~/work/octane/scripts/teardown && ~/work/octane/scripts/up"
 alias recoc="cd ~/work/octane && ./scripts/shell --bash 'pip3 install -r requirements/system.txt' && ./scripts/shell --bash 'pip3 install -r requirements/local.txt' &&  ./scripts/shell --bash 'pip3 install -r requirements/custom.txt'"

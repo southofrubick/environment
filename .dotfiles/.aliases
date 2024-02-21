@@ -1,10 +1,10 @@
 # navigation
 alias ..="cd .."
 alias cdl="cd -"
-alias cdn="cd ~/work/notes"
 
 # open projects in vim
-alias vimn="cd ~/work/notes && vim . ; cdl"
+alias notes="cd ~/work/notes"
+alias note="cd ~/work/notes && vim . ; cdl"
 
 # applications
 alias r="ranger"
