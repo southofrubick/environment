@@ -31,7 +31,7 @@ alias glspec='(){ glo --grep="$1" ;}'
 alias gltree="gl --all --graph --pretty='format:%C(yellow)%h%C(auto)%d%Creset %s %C(white) %C(cyan)%an, %C(magenta)%ar%Creset'"
 alias gm="git merge"
 alias gmm="merge_origin"
-alias gp="git push"
+alias gp="git push -v"
 alias gpo="gp -u origin"
 alias gr="git restore --staged"
 alias grs="git restore --staged ."
@@ -62,9 +62,9 @@ update_origin() {
 merge_origin() {
     dir=$PWD
         if [ "$dir" = "/Users/martin.jonsson/work/octane" ] || [ "$dir" = "/Users/martin.jonsson/work/octane-dealer-frontend" ]; then
-            git merge origin/master
+            git merge origin/master -v --stat
                 elif [ "$dir" = "/Users/martin.jonsson/work/octane-dealer-web-app" ]
-                git merge origin/main
+                git merge origin/main -v --stat
 }
 
 fzf_local_branch() {
