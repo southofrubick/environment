@@ -37,7 +37,6 @@ opt.clipboard = 'unnamed'
 
 opt.ar = true
 
-opt.laststatus = 0
 opt.cmdheight = 0
 
 vim.g.mapleader = " "

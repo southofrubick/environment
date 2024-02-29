@@ -41,6 +41,7 @@ return require('packer').startup(function(use)
     }
 }
 
+-- use('mistricky/codesnap.nvim', { run = 'make' })
 use('folke/trouble.nvim')
 use('wbthomason/packer.nvim')
 use('nvim-treesitter/nvim-treesitter', { run = 'TSUpdate' })
@@ -56,6 +57,9 @@ use{'lukas-reineke/indent-blankline.nvim', main = "ibl"}
 use('famiu/bufdelete.nvim')
 use('gorbit99/codewindow.nvim')
 use('RRethy/vim-illuminate')
+use('b0o/incline.nvim')
+use('levouh/tint.nvim')
+use('kelly-lin/ranger.nvim')
 use {
     'phaazon/hop.nvim',
     branch = 'v2',
