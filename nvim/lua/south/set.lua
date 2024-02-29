@@ -37,6 +37,9 @@ opt.clipboard = 'unnamed'
 
 opt.ar = true
 
+opt.laststatus = 0
+opt.cmdheight = 0
+
 vim.g.mapleader = " "
 
 -- vim.g.netrw_liststyle = 3
