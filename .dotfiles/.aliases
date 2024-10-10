@@ -9,6 +9,7 @@ alias note="cd ~/work/notes && vim . ; cdl"
 # applications
 alias r="ranger"
 alias vim="nvim"
+alias v="vim"
 alias drest="docker compose down && docker compose up"
 alias gotop="gotop -c monokai -l battery"
 alias ydit="yarn audit"
@@ -17,6 +18,7 @@ alias ytesta="yarn test src --coverage"
 alias btest="bun test --coverage"
 alias yver="yarn list --pattern"
 alias ls="eza -a --icons=always -F"
+alias db="delta | bat"
 
 # configs
 alias cona="vim ~/.config/.dotfiles/"

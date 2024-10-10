@@ -31,6 +31,7 @@ alias glspec='(){ glo --grep="$1" ;}'
 alias gltree="gl --all --graph --pretty='format:%C(yellow)%h%C(auto)%d%Creset %s %C(white) %C(cyan)%an, %C(magenta)%ar%Creset'"
 alias gm="git merge"
 alias gmm="merge_origin"
+alias gpatch="git diff >"
 alias gp="git push -v"
 alias gpo="gp -u origin"
 alias gr="git restore --staged"
@@ -52,9 +53,9 @@ alias gmup="gman && gup"
 # make gman both master and main compatible
 update_origin() {
     dir=$PWD
-        if [ "$dir" = "/Users/martin.jonsson/work/octane" ] || [ "$dir" = "/Users/martin.jonsson/work/octane-dealer-frontend" ]; then
+        if git show-ref --verify --quiet refs/heads/master; then
             git checkout master
-                elif [ "$dir" = "/Users/martin.jonsson/work/octane-dealer-web-app" ]
+                elif git show-ref --verify --quiet refs/heads/main
                 git checkout main
 }
 
@@ -146,7 +147,7 @@ fzf_stash_list() {
     git stash list --color=always |
         grep -v HEAD |
         fzf --ansi --reverse \
-            --preview 'git stash show $(sed -E "s,^[^0-9]*([0-9]+).*$,\1," <<< {}) --color=always --date=short --pretty="format:%C(auto)%cd %h%d %s" $(awk -F"[^0-9]+" "$2" <<< {})' |
+            --preview 'git stash show $(sed -E "s,^[^0-9]*([0-9]+).*$,\1," <<< {}) --color=always --date=short | delta --diff-so-fancy' |
         awk -F'[^0-9]+' '{ print $2 }'
 }
 

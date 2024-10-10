@@ -12,4 +12,4 @@ ranger_nvim.setup({
     }
 })
 
-keymap.set("n", "<leader>rf", function() ranger_nvim.open(true) end, {})
+keymap.set("n", "<leader>rf", function() ranger_nvim.open(true) end, { desc = "Ranger" })
