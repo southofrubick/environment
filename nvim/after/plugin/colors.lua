@@ -1,11 +1,16 @@
 local cmd = vim.cmd
-local api = vim.api
-require('catppuccin').setup({
+
+require('tokyonight').setup({
     compile = {
         enabled = true,
         path = vim.fn.stdpath "cache" .. "/catppuccin",
     },
     transparent_background = true,
+    transparent = true,
+    styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+    },
     dim_inactive = {
         enabled = false,
     },
@@ -28,6 +33,13 @@ require('catppuccin').setup({
             lsp = true,
         },
     },
+    on_highlights = function(hl, c)
+        hl.TelescopeBorder = {
+            bg = c.bg_dark,
+            fg = c.bg_dark,
+        }
+    end,
 })
 
-vim.cmd [[colorscheme catppuccin-mocha]]
+-- cmd [[colorscheme catppuccin-mocha]]
+cmd [[colorscheme tokyonight]]

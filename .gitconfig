@@ -18,6 +18,7 @@
     features = Catppuccin-mocha zebra-dark
     hyperlinks = true
     true-color = always
+    line-numbers = true
 
 [merge]
     conflictstyle = diff3
