@@ -31,7 +31,7 @@ keymap.set("n", "<leader>bd", ":Bdelete<CR>", { desc = "close current buffer" })
 keymap.set("n", "<leader>tm", ":tabe %<CR>")
 keymap.set("n", "<leader>tx", ":tabc<CR>")
 
-keymap.set("n", "<leader>tt", ":TroubleToggle<cr>")
+keymap.set("n", "<leader>tt", ":Trouble diagnostics toggle<cr>")
 
 keymap.set("n", "f", "<cmd>HopChar1<CR>")
 keymap.set("n", "<leader>l", "<cmd>HopLineStart<CR>")
