@@ -13,7 +13,7 @@ alias gcl="git checkout -"
 alias gclast="git checkout -"
 alias gco="git checkout"
 alias gcf="gco --"
-alias gcn="gco -b"
+alias gcn="git_new_branch_from_remote"
 alias gd="git diff -M | delta --diff-so-fancy"
 alias gdf="git diff --name-only | delta --diff-so-fancy"
 alias gds="git diff --staged | delta --diff-so-fancy"
@@ -163,4 +163,16 @@ fzf_stash_pop() {
     fi
 
     git stash pop $stash;
+}
+
+git_new_branch_from_remote() {
+    echo "Enter branchname: "
+
+    read branchname
+
+    dir=$PWD
+        if git show-ref --verify --quiet refs/heads/master; then
+            git checkout -b $branchname origin/master
+                elif git show-ref --verify --quiet refs/heads/main
+                git checkout -b $branchname origin/main
 }
