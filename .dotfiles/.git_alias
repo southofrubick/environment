@@ -38,17 +38,19 @@ alias gr="git restore --staged"
 alias grs="git restore --staged ."
 alias gs="git status -s"
 alias gsb="gs -b"
-alias gsclear="gaa . && gst && gst clear"
-alias gclear="gaa . && gst && gst clear"
-alias gst="git stash"
+alias gsclear="gaa . && git stash && git stash clear"
+alias gclear="gaa . && git stash && git stash clear"
+alias gsd="git_drop_stash_by_index"
+alias gst="git_new_stash"
 alias gsi="fzf_stash_pop"
-alias gsp="gst pop"
-alias gss="gst show"
+alias gsp="git stash pop"
+alias gss="git stash show"
 alias gup="git fetch && git pull"
 alias gman="update_origin"
 alias gback="git reset HEAD^"
 alias grsh="git reset --hard"
 alias gmup="gman && gup"
+alias gpu="git_push_upstream"
 
 # make gman both master and main compatible
 update_origin() {
@@ -175,4 +177,32 @@ git_new_branch_from_remote() {
             git checkout -b $branchname origin/master
                 elif git show-ref --verify --quiet refs/heads/main
                 git checkout -b $branchname origin/main
+}
+
+git_drop_stash_by_index() {
+    git rev-parse HEAD > /dev/null 2>&1 || return
+
+    local stash
+
+    stash=$(fzf_stash_list)
+    if [[ "$stash" == "" ]]; then
+        echo "No stash selected."
+        return
+    fi
+
+    git stash drop stash@{$stash}
+}
+
+git_new_stash() {
+    echo "Enter stash message: "
+
+    read stash_message
+
+    git stash -m "$stash_message"
+}
+
+git_push_upstream() {
+    branch_name="$(git symbolic-ref HEAD 2>/dev/null)"
+
+    gp -u origin "${branch_name##refs/heads/}"
 }
