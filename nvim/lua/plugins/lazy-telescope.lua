@@ -70,6 +70,22 @@ return {
                 end,
                 desc = "Grep Current Phrase",
             },
+            {
+                "<leader>en",
+                function()
+                    require('telescope.builtin').find_files {
+                        cwd = vim.fn.stdpath("config")
+                    }
+                end,
+                desc = "NVIM Config",
+            },
+            {
+                "<leader>rr",
+                function()
+                    require('telescope.builtin').lsp_references()
+                end,
+                desc = "LSP References",
+            },
         },
         opts = function()
             local actions = require('telescope.actions')
