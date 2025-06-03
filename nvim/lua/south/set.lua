@@ -56,3 +56,11 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
     command = "if mode() != 'c' | checktime | endif",
     pattern = { "*" },
 })
+
+vim.o.timeout = true
+vim.o.timeoutlen = 300
+
+vim.cmd "autocmd User TelescopePreviewerLoaded setlocal number"
+vim.cmd [[colorscheme tokyonight]]
+vim.cmd [[highlight IlluminatedWordRead guibg=#33364A]]
+vim.g['airline_theme'] = 'angr'
