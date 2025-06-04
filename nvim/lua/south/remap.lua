@@ -38,8 +38,6 @@ keymap.set("n", "<leader>bd", ":Bdelete<CR>", { desc = "close current buffer" })
 keymap.set("n", "<leader>tm", ":tabe %<CR>", { desc = "maximize current pane" })
 keymap.set("n", "<leader>tx", ":tabc<CR>", { desc = "close current pane" })
 
--- keymap.set("n", "<leader>tt", ":Trouble diagnostics toggle<cr>", { desc = "toggle trouble" })
-
 keymap.set("n", "f", "<cmd>HopChar1<CR>", { desc = "jump to character" })
 keymap.set("n", "<leader>l", "<cmd>HopLineStart<CR>", { desc = "jump to line" })
 

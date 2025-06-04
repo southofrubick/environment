@@ -96,7 +96,7 @@ return {
                     theme = "center",
                     layout_config = {
                         horizontal = {
-                            preview_width = 0.5,
+                            preview_width = 0.6,
                         },
                     },
                     sorting_strategy = "ascending",

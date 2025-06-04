@@ -1,6 +1,7 @@
 # navigation
 alias ..="cd .."
 alias cdl="cd -"
+alias cdc="cd ~/.config"
 
 # open projects in vim
 alias notes="cd ~/work/notes"

@@ -8,16 +8,6 @@ return {
         },
     },
     opts = {
-        position = "bottom", -- position of the list can be: bottom, top, left, right
-        height = 10, -- height of the trouble list when position is top or bottom
-        width = 50, -- width of the list when position is left or right
-        mode = "document_diagnostics", "lsp_references", -- "workspace_diagnostics", "document_diagnostics", "quickfix", "lsp_references", "loclist"
-        severity = nil, -- nil (ALL) or vim.diagnostic.severity.ERROR | WARN | INFO | HINT
-        fold_open = "", -- icon used for open folds
-        fold_closed = "", -- icon used for closed folds
-        group = true, -- group results by file
-        padding = true, -- add an extra new line on top of the list
-        cycle_results = true, -- cycle item list when reaching beginning or end of list
         action_keys = { -- key mappings for actions in the trouble list
             -- map to {} to remove a mapping, for example:
             -- close = {},
@@ -43,22 +33,33 @@ return {
         keys = {
             ["<cr>"] = "jump_close",
             ["<esc>"] = "close",
+            f = "fold_toggle",
         },
-        indent_lines = true, -- add an indent guide below the fold icons
+        indent_guides = true, -- add an indent guide below the fold icons
         auto_open = false, -- automatically open the list when you have diagnostics
         auto_close = false, -- automatically close the list when you have no diagnostics
         auto_preview = true, -- automatically preview the location of the diagnostic. <esc> to close preview and go back to last window
-        auto_fold = true, -- automatically fold a file trouble list at creation
         auto_jump = {"lsp_definitions"}, -- for the given modes, automatically jump if there is only a single result
-        signs = {
-            -- icons / text used for a diagnostic
-            error = "✗",
-            warning = "◦",
-            hint = "",
-            information = "",
-            other = "",
-        },
         use_diagnostic_signs = true, -- enabling this will use the signs defined in your lsp client
+        multiline = true,
         focus = true,
+        win = {
+            type = "split",
+            position = "bottom",
+            relative = "editor",
+            border = "rounded",
+            title = "Trouble",
+            title_pos = "center",
+            size = { width = 1, height = 0.2 },
+            zindex = 200,
+        },
+        preview = {
+            type = "split",
+            position = "right",
+            relative = "win",
+            border = "rounded",
+            size = 0.5,
+            zindex = 200,
+        }
     },
 }
