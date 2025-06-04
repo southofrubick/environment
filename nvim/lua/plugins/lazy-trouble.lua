@@ -6,6 +6,11 @@ return {
             ":Trouble diagnostics toggle<cr>",
             desc = "Toggle Trouble"
         },
+        {
+            "<leader>tt",
+            ":Trouble symbols toggle<cr>",
+            desc = "Toggle Trouble Symbols"
+        },
     },
     opts = {
         action_keys = { -- key mappings for actions in the trouble list
@@ -44,21 +49,23 @@ return {
         multiline = true,
         focus = true,
         win = {
-            type = "split",
-            position = "bottom",
+            type = "float",
+            position = { 0.42, 0.165 },
             relative = "editor",
             border = "rounded",
             title = "Trouble",
             title_pos = "center",
-            size = { width = 1, height = 0.2 },
+            size = { width = 0.395, height = 0.85 },
             zindex = 200,
         },
         preview = {
-            type = "split",
-            position = "right",
-            relative = "win",
+            type = "float",
+            position = { 0.42, 0.835 },
+            relative = "editor",
             border = "rounded",
-            size = 0.5,
+            title = "Trouble",
+            title_pos = "center",
+            size = { width = 0.395, height = 0.85 },
             zindex = 200,
         }
     },
