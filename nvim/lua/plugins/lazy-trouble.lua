@@ -4,11 +4,13 @@ return {
         {
             "<leader>tt",
             ":Trouble diagnostics toggle<cr>",
+            mode = { "n" },
             desc = "Toggle Trouble"
         },
         {
-            "<leader>tt",
+            "<leader>ts",
             ":Trouble symbols toggle<cr>",
+            mode = { "n" },
             desc = "Toggle Trouble Symbols"
         },
     },

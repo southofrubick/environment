@@ -1,7 +1,7 @@
 return {
     'backdround/global-note.nvim',
     keys = {
-        { "<leader>n", "<cmd>GlobalNoteToggle<cr>", desc = "Toggle global note" },
+        { "<leader>n", "<cmd>GlobalNoteToggle<cr>", mode = { "n" }, desc = "Toggle global note" },
     },
     opts = {
         directory = "~/work/notes/",

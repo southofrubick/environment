@@ -12,6 +12,7 @@ return {
                 function()
                     require('telescope.builtin').find_files()
                 end,
+                mode = { "n" },
                 desc = "Find Files",
             },
             {
@@ -19,6 +20,7 @@ return {
                 function()
                     require('telescope.builtin').buffers()
                 end,
+                mode = { "n" },
                 desc = "Buffers",
             },
             {
@@ -26,6 +28,7 @@ return {
                 function()
                     require('telescope.builtin').git_files()
                 end,
+                mode = { "n" },
                 desc = "Git Files",
             },
             {
@@ -33,6 +36,7 @@ return {
                 function()
                     require('telescope.builtin').git_branches()
                 end,
+                mode = { "n" },
                 desc = "Git Branches",
             },
             {
@@ -40,6 +44,7 @@ return {
                 function()
                     require('telescope.builtin').git_status()
                 end,
+                mode = { "n" },
                 desc = "Git Status",
             },
             {
@@ -47,6 +52,7 @@ return {
                 function()
                     require('telescope.builtin').treesitter()
                 end,
+                mode = { "n" },
                 desc = "Treesitter",
             },
             {
@@ -54,6 +60,7 @@ return {
                 function()
                     require('telescope.builtin').grep_string({ search = vim.fn.input("Grep > ") })
                 end,
+                mode = { "n" },
                 desc = "Grep String with Picker",
             },
             {
@@ -61,6 +68,7 @@ return {
                 function()
                     require('telescope.builtin').grep_string({ search = vim.fn.expand('<cword>') })
                 end,
+                mode = { "n" },
                 desc = "Grep Current Word",
             },
             {
@@ -68,6 +76,7 @@ return {
                 function()
                     require('telescope.builtin').grep_string({ search = vim.fn.expand('<cWORD>') })
                 end,
+                mode = { "n" },
                 desc = "Grep Current Phrase",
             },
             {
@@ -77,6 +86,7 @@ return {
                         cwd = vim.fn.stdpath("config")
                     }
                 end,
+                mode = { "n" },
                 desc = "NVIM Config",
             },
             {
@@ -84,6 +94,7 @@ return {
                 function()
                     require('telescope.builtin').lsp_references()
                 end,
+                mode = { "n" },
                 desc = "LSP References",
             },
         },
@@ -96,7 +107,7 @@ return {
                     theme = "center",
                     layout_config = {
                         horizontal = {
-                            preview_width = 0.6,
+                            preview_width = 0.5,
                         },
                     },
                     sorting_strategy = "ascending",
